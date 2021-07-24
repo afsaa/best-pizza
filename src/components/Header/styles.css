@@ -1,0 +1,15 @@
+.header {
+    background-image: url('../../assets/imagebkg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.header :nth-child(1) {
+    width: 100px;
+    height: 100px;
+    margin: 10% 0 0 30%;
+}
+.header :nth-child(2) {
+    width: 100%;
+    height: auto;
+}
