@@ -1,0 +1,54 @@
+.app {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(2, 1fr);
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 0 10% 0 5%;
+}
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 10px;
+}
+.nav__menu {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+.menu__item {
+    margin: 0 5px 3px 0;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #f9c547;
+    color: darkgray;
+}
+.nav > div > p {
+    font-size: 1.5rem;
+}
+.main__description {
+    margin-left: 10px;
+}
+.main__description > h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.main__description > p {
+    margin-bottom: 10px;
+    font-size: 1.75rem;
+    color: darkgray;
+}
+.pizzerias__container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
