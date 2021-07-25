@@ -1,0 +1,14 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.card__img-container {
+    margin-bottom: 10px;
+}
+.card__description > h2 {
+    margin-bottom: 5px;
+}
+.card__description > p {
+    color: darkgray;
+}
