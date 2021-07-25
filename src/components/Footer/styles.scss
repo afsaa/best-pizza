@@ -1,3 +1,6 @@
+@import '../../styles/breakpoints';
+@import '../../styles/mixins';
+
 .footer {
     display: flex;
     flex-direction: row;
@@ -7,6 +10,9 @@
     width: 100%;
     height: 80px;
     background-color: black;
+    @include sm {
+        grid-column: 1 / -1;
+    }
 }
 .footer__social-media {
     margin: 0 10%;

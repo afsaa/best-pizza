@@ -2,7 +2,7 @@ import React from 'react'
 import BestPizzaLogo from '../../assets/Best_Pizza.png';
 import FacebookLogo from '../../assets/facebook.png';
 import InstagramLogo from '../../assets/instagram.png';
-import './styles.css'
+import './styles.scss'
 
 const Footer = () => {
     return (

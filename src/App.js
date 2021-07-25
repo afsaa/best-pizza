@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 import PanosPizza from './assets/Panos_pizza.png'
 import SbarroPizza from './assets/Sbarro.png'
 import RestaurantCard from "./components/RestaurantCard";
-import './App.css'
+import './App.scss'
 
 const pizzerias = [{
   name: "Pano's Pizza",
