@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Fade, CircularProgress, Snackbar } from '@material-ui/core';
+import { Fade, CircularProgress } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import './styles.scss'
-
 import LoginBestPizza from '../../assets/Login-Best-Pizza.png';
+import axios from 'axios';
+
 
 const validationSchema = yup.object({
   email: yup
@@ -20,7 +22,7 @@ const validationSchema = yup.object({
 
 const LoginForm = () => {
   const [query, setQuery] = useState('idle');
-  const [open, setOpen] = useState(false);
+  let history = useHistory();
 
   const formik = useFormik({
     initialValues: {
@@ -30,24 +32,28 @@ const LoginForm = () => {
     validationSchema,
     onSubmit: async ({ email, password }) => {
       setQuery('progress');
-      setTimeout(() => {
-        console.log(email);
-        console.log(password);
+
+      const res = await axios.get('https://pruebas-muy-candidatos.s3.us-east-2.amazonaws.com/RH.json');
+      const users = res.data.response.users;
+      const user = users.find((user) => {
+        return user.email === email && user.password === password;
+      })
+
+      if (user) {
         setQuery('success');
-      }, 3000);
+        history.push("/home");
+      } else {
+        setQuery('bad_credentials');
+      }
     },
   });
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
 
-    setOpen(false);
+    setQuery('');
   };
 
   return (
@@ -157,16 +163,14 @@ const LoginForm = () => {
             </div>
           </form>
         </div>
+          {(query === 'bad_credentials' || query === 'error') && (
+            <Alert onClose={handleClose} severity="error">
+              {query === 'bad_credentials'
+                ? 'Credenciales inválidas, por favor intentalo de nuevo'
+                : 'Ha ocurrido un error, por favor intentalo de nuevo'}
+            </Alert>
+          )}
       </div>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        {query === 'bad_credentials' || query === 'error' && (
-          <Alert onClose={handleClose} severity="error">
-            {query === 'bad_credentials'
-              ? 'Credenciales inválidas, por favor intentalo de nuevo'
-              : 'Ha ocurrido un error, por favor intentalo de nuevo'}
-          </Alert>
-        )}
-      </Snackbar>
     </>
   );
 };

@@ -9,10 +9,22 @@
     width: 100%;
     height: 100vh;
     grid-row: 1 / -1;
+    @include sm {
+        align-items: center;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        height: auto;
+        margin: 20px 0;
+        padding: 0;
+        text-align: center;
+    }
 }
 .login-form > img {
     width: 200px;
     height: 150px;
+    @include sm {
+        margin-bottom: 20px;
+    }
 }
 .form__container {
     width: 100%;

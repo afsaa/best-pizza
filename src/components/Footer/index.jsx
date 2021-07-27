@@ -8,8 +8,8 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer__social-media">
-                <img src={FacebookLogo} alt="Logo de facebook" />
-                <img src={InstagramLogo} alt="Logo de instagram" />
+                <a href="https://www.facebook.com" target="_blank" rel="noreferrer"><img src={FacebookLogo} alt="Logo de facebook" /></a>
+                <a href="https://www.instagram.com" target="_blank" rel="noreferrer"><img src={InstagramLogo} alt="Logo de instagram" /></a>
             </div>
             <div className="footer__logo" >
                 <img src={BestPizzaLogo} alt="Logo Best Pizza" />
